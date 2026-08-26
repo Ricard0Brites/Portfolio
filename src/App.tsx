@@ -91,23 +91,21 @@ export default class App extends Component
     // Make item List
     const Items : ProjectEntry[] = 
     [
-      makeProjectEntry('Title 1', 'Description 1', 'link', 'repo link', placeholderImage, [
-        makeSkillEntry('UE5', placeholderImage),
-        makeSkillEntry('UE6', placeholderImage),
-      ]),
-      makeProjectEntry('Title 2', 'Description 1', 'link', 'repo link', placeholderImage, [
-        makeSkillEntry('UE5', placeholderImage),
-        makeSkillEntry('UE6', placeholderImage),
-      ]),
-      makeProjectEntry('Title 3', 'Description 1', 'link', 'repo link', placeholderImage, [
-        makeSkillEntry('UE5', placeholderImage),
-        makeSkillEntry('UE6', placeholderImage),
-      ]),
-      makeProjectEntry('Title 4', 'Description 1', 'link', 'repo link', placeholderImage, [
-        makeSkillEntry('UE5', placeholderImage),
-        makeSkillEntry('UE6', placeholderImage),
-      ]),
+      
     ];
+
+    /*
+
+    const Items : ProjectEntry[] = 
+    [
+      makeProjectEntry('Title 1', 'Description 1', 'link', 'repo link', placeholderImage, 
+        [
+          makeSkillEntry('UE5', placeholderImage),
+          makeSkillEntry('UE6', placeholderImage),
+        ]),
+    ];
+
+    */
 
     const FrontendObjects = Items.map((item) => 
     (
