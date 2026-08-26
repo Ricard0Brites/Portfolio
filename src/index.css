@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Space+Grotesk:wght@300..700&display=swap'); /* Share Tech Mono - Designed by Carrois Apostrophe */
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root
+{
+    font-family: "Space Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    @apply bg-white text-black;
+  }
+  
+  .dark body {
+    @apply bg-zinc-900 text-white;
+  }
+
+hr {
+  @apply text-zinc-500;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-only{
+    display: flow-root !important;
+  }
+  .link {
+    text-decoration: none !important;
+  }
+}
+
+.print-only{
+    display: none;
+    font-size: var(--text-sm); /* 0.75rem (12px) */ 
+    line-height: var(--text-sm--line-height); /* calc(1 / 0.75) */
+  }
+
+.link{
+  text-decoration: underline;
+}
+.link:hover
+{
+  @apply dark:text-zinc-400 text-zinc-500;
+  font-weight: 600;
+}
+
+.bullet-li
+{
+  list-style-type: circle;
+}
+
+
+
+.default-scrollbar {
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* IE and old Edge */
+  scrollbar-width: thin; /* Firefox */
+  overflow-x: hidden;
+}
+
+.default-scrollbar {
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* IE and old Edge */
+  scrollbar-width: thin; /* Firefox */
+  overflow-x: hidden;
+  
+  /* Firefox: thumb color and track color */
+  scrollbar-color: rgba(100,100,100,0.5) rgba(200,200,200,0.0); /* thumb track */
+}
+
+/* WebKit browsers: Chrome, Safari, modern Edge */
+.default-scrollbar::-webkit-scrollbar {
+  width: 10px; /* vertical scrollbar width */
+}
+
+.default-scrollbar::-webkit-scrollbar-track {
+  background-color: rgba(200,200,200,0.0); /* track background color */
+}
+
+.default-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(100,100,100,0.0); /* thumb color */
+  border-radius: 5px;
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
