@@ -5,7 +5,6 @@ import './index.css'
 
 import Header from './components/Header';
 import placeholderImage from './assets/placeholder.png';
-import { getCurrentTheme } from './themeUtils';
 
 // Define Skill as an object structure
 interface Skill 
