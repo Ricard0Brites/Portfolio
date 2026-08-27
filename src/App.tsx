@@ -17,7 +17,7 @@ interface Skill
 interface ProjectEntry 
 {
   title: string;
-  description: string;
+  description: React.ReactNode;
   link: string;
   repositoryLink: string;
   image: string;
@@ -30,7 +30,7 @@ function makeSkillEntry(name: string, icon: string)
 }
 
 // Function returns the ProjectEntry object directly
-function makeProjectEntry(title: string, description: string, link: string, repositoryLink: string, image: string, skills: Skill[]) : ProjectEntry 
+function makeProjectEntry(title: string, description: React.ReactNode, link: string, repositoryLink: string, image: string, skills: Skill[]) : ProjectEntry 
 {
   return {
     title,
@@ -91,18 +91,26 @@ export default class App extends Component
     // Make item List
     const Items : ProjectEntry[] = 
     [
-      
     ];
 
     /*
 
     const Items : ProjectEntry[] = 
     [
-      makeProjectEntry('Title 1', 'Description 1', 'link', 'repo link', placeholderImage, 
-        [
-          makeSkillEntry('UE5', placeholderImage),
-          makeSkillEntry('UE6', placeholderImage),
-        ]),
+      makeProjectEntry(
+                        'Title 1',
+                        <ul className='text-left'>
+                          <li className='bullet-li'> Test 1</li>
+                          <li className='bullet-li'> Test 2</li>
+                        </ul>,
+                        'link',
+                        'repo link',
+                        placeholderImage,
+                        [
+                            makeSkillEntry('UE5', placeholderImage),
+                            makeSkillEntry('UE6', placeholderImage),
+                        ]
+                      ),
     ];
 
     */
@@ -121,7 +129,7 @@ export default class App extends Component
 
         {/* Content */}
         <div className="p-4 w-full flex flex-col items-center">
-
+          
           {/* Skills */}
           <div className="flex flex-wrap gap-2 mb-4 justify-center w-full">
             {item.skills.map(skill => (
@@ -133,7 +141,7 @@ export default class App extends Component
           </div>
 
           {/* Description */}
-          <p className={`mb-4`}>{item.description}</p>
+          <div className="mb-4">{item.description}</div>
 
           {/* Links */}
           <div className="flex gap-4 justify-center w-full">
