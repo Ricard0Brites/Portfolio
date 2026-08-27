@@ -9,7 +9,6 @@ import placeholderImage from './assets/placeholder.png';
 /* Images */
 import npcImage from './assets/AI_NPC/AI_NPC_Cover.gif';
 import { getCurrentTheme } from './themeUtils';
-import FeatureShowcase from './components/FeatureShowcase';
 
 // Define Skill as an object structure
 interface Skill 
