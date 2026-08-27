@@ -6,6 +6,11 @@ import './index.css'
 import Header from './components/Header';
 import placeholderImage from './assets/placeholder.png';
 
+/* Images */
+import npcImage from './assets/AI_NPC/AI_NPC_Cover.gif';
+import { getCurrentTheme } from './themeUtils';
+import FeatureShowcase from './components/FeatureShowcase';
+
 // Define Skill as an object structure
 interface Skill 
 {
@@ -91,6 +96,62 @@ export default class App extends Component
     // Make item List
     const Items : ProjectEntry[] = 
     [
+        makeProjectEntry(
+          'AI NPC', 
+          <div className="flex flex-col gap-2 text-left text-sm">
+            {/* Perception */}
+            <div className="flex flex-wrap items-baseline gap-2">
+              <span className="font-bold">Perception:</span>
+              <div className="flex flex-wrap gap-1">
+                {
+                  ['Vision', 'Audio', 'Damage Detection'].map(
+                    sub => 
+                    (
+                      <span key={sub} className={`text-xs ${getCurrentTheme().bg} px-2 py-0.5 rounded ${getCurrentTheme().text}`}>{sub}</span>
+                    )
+                  )
+                }
+              </div>
+            </div>
+
+            {/* Navigation */}
+            <div className="flex flex-wrap items-baseline gap-2">
+              <span className="font-bold">Navigation:</span>
+              <div className="flex flex-wrap gap-1">
+                {
+                  ['Spline Pathing', 'Cover EQS'].map(
+                    sub => 
+                    (
+                      <span key={sub} className={`text-xs ${getCurrentTheme().bg} px-2 py-0.5 rounded ${getCurrentTheme().text}`}>{sub}</span>
+                    )
+                  )
+                }
+              </div>
+            </div>
+
+            {/* Combat */}
+            <div className="flex flex-wrap items-baseline gap-2">
+              <span className="font-bold">Combat: </span>
+              <div className="flex flex-wrap gap-1">
+                {
+                  ['Bullet Trajectory Prediction'].map(
+                    sub => 
+                    (
+                      <span key={sub} className={`text-xs ${getCurrentTheme().bg} px-2 py-0.5 rounded ${getCurrentTheme().text}`}>{sub}</span>
+                    )
+                  )
+                }
+              </div>
+            </div>
+          </div>,
+          'link',
+          'https://github.com/Ricard0Brites/Unreal_AI_Demo',
+          npcImage, 
+          [
+            makeSkillEntry('UE5', placeholderImage),
+            makeSkillEntry('UE6', placeholderImage),
+          ]
+        ),
     ];
 
     /*
