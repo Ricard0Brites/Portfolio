@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { getThemes } from '../themeUtils';
 
 // --- Constants & Configuration ---
 const CONFIG = {
@@ -15,7 +14,7 @@ const CONFIG = {
 
 // --- Icons (SVG Components) ---
 const Icon = ({ children, className = "size-6", strokeWidth = 2, stroke = "currentColor" }: { children: React.ReactNode; className?: string; strokeWidth?: number; stroke?: string }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={strokeWidth} stroke={stroke} className={className}>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={strokeWidth} stroke={stroke} className={`${className} stroke-current`}>
     {children}
   </svg>
 );
@@ -23,12 +22,12 @@ const Icon = ({ children, className = "size-6", strokeWidth = 2, stroke = "curre
 const ICONS = 
 {
   moon: (
-    <Icon className={`size-6 ${getThemes().dark.stroke}`}>
+    <Icon className="size-6">
       <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
     </Icon>
   ),
   sun: (
-    <Icon className={`size-6 ${getThemes().light.stroke}`}>
+    <Icon className="size-6">
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
     </Icon>
   ),
@@ -102,32 +101,28 @@ export default function Header()
   const [darkMode, setDarkMode] = useDarkMode();
   const showHeader = useScrollVisibility();
 
-  const theme = darkMode ? getThemes().dark : getThemes().light;
-
-  // Use theme text color
-  const textColor = theme.text;
-  const headerBaseClasses = `fixed top-0 ${getThemes().headerHeight} w-full ${theme.bg} ${theme.border} transition-transform duration-500 z-[9999]`;
+  const headerBaseClasses = `fixed top-0 h-theme w-full bg-theme border-theme transition-transform duration-500 z-[9999]`;
 
   return (
     <div>
       {/* Web Version */}
       <div className='no-print'>
-        <div className={`static ${getThemes().headerHeight} w-full`}></div>
+        <div className='static h-theme w-full'></div>
         <header className={`${headerBaseClasses} ${showHeader ? "translate-y-0" : "-translate-y-full"}`}>
           <div className="flex justify-between items-center h-full px-4">
             {/* Left Section */}
             <a href="/" className="flex flex-col justify-center">
-              <h1 className={`${textColor} hover:text-zinc-500 dark:hover:text-zinc-300 text-l font-bold transition ease-in-out duration-300`}>
+              <h1 className="text-theme hover:text-zinc-500 dark:hover:text-zinc-300 text-l font-bold transition ease-in-out duration-300">
                 {CONFIG.name}
               </h1>
-              <p className={`text-xs ${theme.secondaryText}`}>
+              <p className="text-xs text-secondary-theme">
                 {CONFIG.role} · {CONFIG.location}
               </p>
             </a>
 
             {/* Middle Section */}
-            <a href={CONFIG.cv} className={`${textColor} p-2.5 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-500 transition ease-in-out duration-300 font-bold`}>
-              <div className={`outline-[2.5px] rounded-full pt-0.5 pb-0.5 pl-[0.15rem] pr-[0.15rem] text-xs`}>
+            <a href={CONFIG.cv} className="text-theme p-2.5 rounded-full hover-theme transition ease-in-out duration-300 font-bold">
+              <div className="outline-[2.5px] rounded-full pt-0.5 pb-0.5 pl-[0.15rem] pr-[0.15rem] text-xs">
                 CV
               </div>
             </a>
@@ -135,16 +130,16 @@ export default function Header()
             {/* Right Section */}
             <div className="flex items-center gap-4">
               {/* Github */}
-              <a href={CONFIG.github} target="_blank" rel="noopener noreferrer" className={`${textColor} p-2 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-500 transition ease-in-out duration-300`}>{ICONS.github}</a>
+              <a href={CONFIG.github} target="_blank" rel="noopener noreferrer" className="text-theme p-2 rounded-full hover-theme transition ease-in-out duration-300">{ICONS.github}</a>
               
               {/* LinkedIn */}
-              <a href={CONFIG.linkedin} target="_blank" rel="noopener noreferrer" className={`${textColor} p-2 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-500 transition ease-in-out duration-300`}>{ICONS.linkedin}</a>
+              <a href={CONFIG.linkedin} target="_blank" rel="noopener noreferrer" className="text-theme p-2 rounded-full hover-theme transition ease-in-out duration-300">{ICONS.linkedin}</a>
               
               {/* Email */}
-              <button onClick={() => window.open(`mailto:${CONFIG.email}`)} className={`${textColor} p-2 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-500 transition ease-in-out duration-300 cursor-pointer`}>{ICONS.email}</button>
+              <button onClick={() => window.open(`mailto:${CONFIG.email}`)} className="text-theme p-2 rounded-full hover-theme transition ease-in-out duration-300 cursor-pointer">{ICONS.email}</button>
               
               {/* Light/Dark Button */}
-              <button onClick={() => setDarkMode(!darkMode)} className={`p-2 rounded-full ${theme.bg} hover:bg-zinc-300 dark:hover:bg-zinc-500 transition ease-in-out duration-300`} aria-label="Toggle dark mode"> {darkMode ? ICONS.moon : ICONS.sun} </button>
+              <button onClick={() => setDarkMode(!darkMode)} className="p-2 rounded-full text-theme hover-theme transition ease-in-out duration-300" aria-label="Toggle dark mode"> {darkMode ? ICONS.moon : ICONS.sun} </button>
             </div>
           </div>
         </header>
@@ -152,12 +147,12 @@ export default function Header()
 
       {/* Print Version */}
       <div className='print-only'>
-        <div className={`fixed ${getThemes().headerHeight} w-full`}></div>
+        <div className='fixed h-theme w-full'></div>
         <header className={`${headerBaseClasses} text-xs`}>
           <div className="flex flex-1 items-center justify-center h-full px-4">
             <div className='w-full h-full flex flex-col items-center justify-evenly'>
-              <h1 className={`${textColor} font-bold`}>{CONFIG.name}</h1>
-              <h1 className={`${textColor} font-bold`}>
+              <h1 className="text-theme font-bold">{CONFIG.name}</h1>
+              <h1 className="text-theme font-bold">
                 {CONFIG.location} | LinkedIn - ricard0brites | Email - {CONFIG.email} | {CONFIG.phone}
               </h1>
             </div>
