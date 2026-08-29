@@ -8,7 +8,6 @@ import placeholderImage from './assets/placeholder.png';
 
 /* Images */
 import npcImage from './assets/AI_NPC/AI_NPC_Cover.gif';
-import { getCurrentTheme } from './themeUtils';
 
 // Define Skill as an object structure
 interface Skill 
@@ -106,7 +105,7 @@ export default class App extends Component
                   ['Vision', 'Audio', 'Damage Detection'].map(
                     sub => 
                     (
-                      <span key={sub} className={`text-xs ${getCurrentTheme().bg} px-2 py-0.5 rounded ${getCurrentTheme().text}`}>{sub}</span>
+                      <span key={sub} className={`text-xs bg-theme px-2 py-0.5 rounded text-theme`}>{sub}</span>
                     )
                   )
                 }
@@ -121,7 +120,7 @@ export default class App extends Component
                   ['Spline Pathing', 'Cover EQS'].map(
                     sub => 
                     (
-                      <span key={sub} className={`text-xs ${getCurrentTheme().bg} px-2 py-0.5 rounded ${getCurrentTheme().text}`}>{sub}</span>
+                      <span key={sub} className={`text-xs bg-theme px-2 py-0.5 rounded text-theme`}>{sub}</span>
                     )
                   )
                 }
@@ -136,7 +135,7 @@ export default class App extends Component
                   ['Bullet Trajectory Prediction'].map(
                     sub => 
                     (
-                      <span key={sub} className={`text-xs ${getCurrentTheme().bg} px-2 py-0.5 rounded ${getCurrentTheme().text}`}>{sub}</span>
+                      <span key={sub} className={`text-xs bg-theme px-2 py-0.5 rounded text-theme`}>{sub}</span>
                     )
                   )
                 }
