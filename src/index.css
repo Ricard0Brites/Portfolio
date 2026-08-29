@@ -18,7 +18,8 @@
 
     --bg-color: var(--color-zinc-200);
     --text-color: var(--color-zinc-600);
-    --secondary-text-color: var(--color-zinc-400); 
+    --secondary-text-color: var(--color-zinc-400);
+    --text-contrast: var(--color-zinc-200);
     --stroke-color: var(--color-zinc-600); 
     --hover-color: var(--color-zinc-300); 
     --border-color: var(--color-zinc-300);
@@ -33,6 +34,7 @@
     --bg-color: var(--color-zinc-600); 
     --text-color: var(--color-zinc-200);
     --secondary-text-color: var(--color-zinc-400);
+    --text-contrast: var(--color-zinc-600);
     --stroke-color: var(--color-zinc-400);
     --hover-color: var(--color-zinc-500);
     --border-color: var(--color-zinc-600);
@@ -47,6 +49,7 @@
 .bg-contrast { background-color: var(--bg-color-contrastelement) !important; color: var(--text-color-contrastelement) !important; }
 .text-theme { color: var(--text-color) !important; }
 .text-secondary-theme { color: var(--secondary-text-color) !important; }
+.text-contrast { color: var(--text-contrast) !important; }
 .stroke-theme { color: var(--stroke-color) !important; }
 .hover-theme:hover { background-color: var(--hover-color) !important; }
 .border-theme { border-color: var(--border-color) !important; }

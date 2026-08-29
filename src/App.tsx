@@ -99,13 +99,13 @@ export default class App extends Component
           <div className="flex flex-col gap-2 text-left text-sm">
             {/* Perception */}
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-bold">Perception:</span>
+              <span>Perception:</span>
               <div className="flex flex-wrap gap-1">
                 {
                   ['Vision', 'Audio', 'Damage Detection'].map(
                     sub => 
                     (
-                      <span key={sub} className={`text-xs bg-theme px-2 py-0.5 rounded text-theme`}>{sub}</span>
+                      <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
                     )
                   )
                 }
@@ -114,13 +114,13 @@ export default class App extends Component
 
             {/* Navigation */}
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-bold">Navigation:</span>
+              <span>Navigation:</span>
               <div className="flex flex-wrap gap-1">
                 {
                   ['Spline Pathing', 'Cover EQS'].map(
                     sub => 
                     (
-                      <span key={sub} className={`text-xs bg-theme px-2 py-0.5 rounded text-theme`}>{sub}</span>
+                      <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
                     )
                   )
                 }
@@ -129,20 +129,20 @@ export default class App extends Component
 
             {/* Combat */}
             <div className="flex flex-wrap items-baseline gap-2">
-              <span className="font-bold">Combat: </span>
+              <span>Combat: </span>
               <div className="flex flex-wrap gap-1">
                 {
                   ['Bullet Trajectory Prediction'].map(
                     sub => 
                     (
-                      <span key={sub} className={`text-xs bg-theme px-2 py-0.5 rounded text-theme`}>{sub}</span>
+                      <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
                     )
                   )
                 }
               </div>
             </div>
           </div>,
-          'link',
+          '',
           'https://github.com/Ricard0Brites/Unreal_AI_Demo',
           npcImage, 
           [
@@ -204,8 +204,9 @@ export default class App extends Component
 
           {/* Links */}
           <div className="flex gap-4 justify-center w-full">
-            <a href={item.link} className="text-blue-500 hover:underline">View Project</a>
-            <a href={item.repositoryLink} className="text-blue-500 hover:underline">Repository</a>
+            
+            { item.link.length <= 0 ? '' : <a href={item.link} className="text-blue-500 hover:underline">View Project</a> }
+            { item.repositoryLink.length <= 0 ? '' : <a href={item.repositoryLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Repository</a> }
           </div>
         </div>
 
