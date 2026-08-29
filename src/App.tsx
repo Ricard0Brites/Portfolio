@@ -177,12 +177,12 @@ export default class App extends Component
 
     const FrontendObjects = Items.map((item) => 
     (
-      <div key={item.title} className="border border-gray-300 rounded-lg shadow-none hover:shadow-md transition-shadow flex flex-col items-center text-center overflow-hidden">
+      <div key={item.title} className="border border-theme rounded-lg shadow-none hover:shadow-md transition-shadow flex flex-col items-center text-center overflow-hidden">
 
         {/* Image Container */}
         <div className="relative w-full h-64">
           <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-linear-to-t from-zinc-900 via-transparent to-transparent flex items-end justify-center p-4">
+          <div className="absolute inset-0 gradient-theme via-transparent to-transparent flex items-end justify-center p-4">
             <h3 className="text-2xl font-bold text-white px-2">{item.title}</h3>
           </div>
         </div>
@@ -193,7 +193,7 @@ export default class App extends Component
           {/* Skills */}
           <div className="flex flex-wrap gap-2 mb-4 justify-center w-full">
             {item.skills.map(skill => (
-              <span key={skill.name} className="bg-gray-100 text-xs px-2 py-1 rounded flex items-center">
+              <span key={skill.name} className="bg-contrast text-xs px-2 py-1 rounded flex items-center">
                 <img src={skill.icon} alt={skill.name} className="w-4 h-4 mr-1" />
                 {skill.name}
               </span>
