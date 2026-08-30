@@ -4,7 +4,6 @@ import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import './index.css'
 
 import Header from './components/Header';
-import placeholderImage from './assets/placeholder.png';
 
 /* Gifs */
 import npcGif from './assets/AI_NPC/AI_NPC_Cover.gif';
