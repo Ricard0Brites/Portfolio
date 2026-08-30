@@ -6,8 +6,14 @@ import './index.css'
 import Header from './components/Header';
 import placeholderImage from './assets/placeholder.png';
 
-/* Images */
-import npcImage from './assets/AI_NPC/AI_NPC_Cover.gif';
+/* Gifs */
+import npcGif from './assets/AI_NPC/AI_NPC_Cover.gif';
+import gameEngineGif from './assets/Game_Engine/GameEngineDemo.gif';
+
+/* Icons */
+import UnrealIcon from './assets/Icons/UnrealEngine.png'
+import CppIcon from './assets/Icons/C++.png'
+import OpenGLIcon from './assets/Icons/OpenGL.png'
 
 // Define Skill as an object structure
 interface Skill 
@@ -94,45 +100,15 @@ export default class App extends Component
     // Make item List
     const Items : ProjectEntry[] = 
     [
+        
+        // Unreal AI NPC
         makeProjectEntry(
           'AI NPC', 
           <div className="flex flex-col gap-2 text-left text-sm">
-            {/* Perception */}
             <div className="flex flex-wrap items-baseline gap-2">
-              <span>Perception:</span>
               <div className="flex flex-wrap gap-1">
                 {
-                  ['Vision', 'Audio', 'Damage Detection'].map(
-                    sub => 
-                    (
-                      <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
-                    )
-                  )
-                }
-              </div>
-            </div>
-
-            {/* Navigation */}
-            <div className="flex flex-wrap items-baseline gap-2">
-              <span>Navigation:</span>
-              <div className="flex flex-wrap gap-1">
-                {
-                  ['Spline Pathing', 'Cover EQS'].map(
-                    sub => 
-                    (
-                      <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
-                    )
-                  )
-                }
-              </div>
-            </div>
-
-            {/* Combat */}
-            <div className="flex flex-wrap items-baseline gap-2">
-              <span>Combat: </span>
-              <div className="flex flex-wrap gap-1">
-                {
-                  ['Bullet Trajectory Prediction'].map(
+                  ['Vision', 'Audio', 'Damage Detection', 'Spline Pathing', 'Cover EQS', 'Bullet Trajectory Prediction'].map(
                     sub => 
                     (
                       <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
@@ -144,10 +120,37 @@ export default class App extends Component
           </div>,
           '',
           'https://github.com/Ricard0Brites/Unreal_AI_Demo',
-          npcImage, 
+          npcGif, 
           [
-            makeSkillEntry('UE5', placeholderImage),
-            makeSkillEntry('UE6', placeholderImage),
+            makeSkillEntry('', UnrealIcon),
+            makeSkillEntry('', CppIcon),
+          ]
+        ),
+        
+        // C++ Game Engine
+        makeProjectEntry(
+          'C++ Game Engine', 
+          <div className="flex flex-col gap-2 text-left text-sm">
+            <span> </span>
+            <div className="flex flex-wrap items-baseline gap-2">
+              <div className="flex flex-wrap gap-1">
+                {
+                  ['Collision', 'Input', 'Rendering', 'Object Management'].map(
+                    sub => 
+                    (
+                      <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
+                    )
+                  )
+                }
+              </div>
+            </div>
+          </div>,
+          '',
+          'https://github.com/Ricard0Brites/Game-Engine',
+          gameEngineGif, 
+          [
+            makeSkillEntry('', CppIcon),
+            makeSkillEntry('', OpenGLIcon),
           ]
         ),
     ];
@@ -191,11 +194,12 @@ export default class App extends Component
           
           {/* Skills */}
           <div className="flex flex-wrap gap-2 mb-4 justify-center w-full">
+            Tools:
             {item.skills.map(skill => (
-              <span key={skill.name} className="bg-contrast text-xs px-2 py-1 rounded flex items-center">
-                <img src={skill.icon} alt={skill.name} className="w-4 h-4 mr-1" />
-                {skill.name}
-              </span>
+              <div className="bg-contrast text-xs px-2 py-1 rounded flex items-center"> 
+                <img src={skill.icon} alt={skill.name} className="h-4 w-auto dark:invert" />
+                <span key={skill.name} className={skill.name.length > 0 ? 'ml-1' : ''}>{skill.name}</span>
+              </div>
             ))}
           </div>
 
