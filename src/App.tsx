@@ -9,11 +9,14 @@ import placeholderImage from './assets/placeholder.png';
 /* Gifs */
 import npcGif from './assets/AI_NPC/AI_NPC_Cover.gif';
 import gameEngineGif from './assets/Game_Engine/GameEngineDemo.gif';
+import DecimatedGif from './assets/Decimated/DecimatedDemo.gif';
 
 /* Icons */
 import UnrealIcon from './assets/Icons/UnrealEngine.png'
 import CppIcon from './assets/Icons/C++.png'
 import OpenGLIcon from './assets/Icons/OpenGL.png'
+import PlayfabIcon from './assets/Icons/Playfab.png'
+import FigmaIcon from './assets/Icons/Figma.png'
 
 // Define Skill as an object structure
 interface Skill 
@@ -100,7 +103,33 @@ export default class App extends Component
     // Make item List
     const Items : ProjectEntry[] = 
     [
-        
+        // Decimated
+        makeProjectEntry(
+          'Decimated', 
+          <div className="flex flex-col gap-2 text-left text-sm">
+            <div className="flex flex-wrap items-baseline gap-2">
+              <div className="flex flex-wrap gap-1">
+                {
+                  ['Live-Ops', 'Input/Controls', 'Network Replicated Systems', 'Optimization', 'Debugging', 'Pipeline Creation', 'Mentoring', 'Documentation', 'User Interface Development'].map(
+                    sub => 
+                    (
+                      <span key={sub} className={`text-xs bg-contrast px-2 py-0.5 rounded text-contrast`}>{sub}</span>
+                    )
+                  )
+                }
+              </div>
+            </div>
+          </div>,
+          'https://store.steampowered.com/app/1354980/Decimated/',
+          '',
+          DecimatedGif, 
+          [
+            makeSkillEntry('', UnrealIcon),
+            makeSkillEntry('', CppIcon),
+            makeSkillEntry('', PlayfabIcon),
+            makeSkillEntry('', FigmaIcon),
+          ]
+        ),
         // Unreal AI NPC
         makeProjectEntry(
           'AI NPC', 
@@ -118,8 +147,8 @@ export default class App extends Component
               </div>
             </div>
           </div>,
-          '',
           'https://github.com/Ricard0Brites/Unreal_AI_Demo',
+          '',
           npcGif, 
           [
             makeSkillEntry('', UnrealIcon),
@@ -145,8 +174,8 @@ export default class App extends Component
               </div>
             </div>
           </div>,
-          '',
           'https://github.com/Ricard0Brites/Game-Engine',
+          '',
           gameEngineGif, 
           [
             makeSkillEntry('', CppIcon),
@@ -182,7 +211,7 @@ export default class App extends Component
       <div key={item.title} className="border border-theme rounded-lg shadow-none hover:shadow-md transition-shadow flex flex-col items-center text-center overflow-hidden">
 
         {/* Image Container */}
-        <div className="relative w-full h-64">
+        <div className="relative w-full h-80">
           <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 gradient-theme via-transparent to-transparent flex items-end justify-center p-4">
             <h3 className="text-2xl font-bold text-white px-2">{item.title}</h3>
@@ -209,7 +238,7 @@ export default class App extends Component
           {/* Links */}
           <div className="flex gap-4 justify-center w-full">
             
-            { item.link.length <= 0 ? '' : <a href={item.link} className="text-blue-500 hover:underline">View Project</a> }
+            { item.link.length <= 0 ? '' : <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">View Project</a> }
             { item.repositoryLink.length <= 0 ? '' : <a href={item.repositoryLink} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Repository</a> }
           </div>
         </div>
